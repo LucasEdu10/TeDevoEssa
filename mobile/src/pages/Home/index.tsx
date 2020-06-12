@@ -2,9 +2,17 @@ import React from 'react';
 import { View, Text, ImageBackground, StyleSheet, Image} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { Feather as Icon} from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native';
 // import logo from '../../assets/aperto.png';
 
 const Home = () => {
+  const navigation = useNavigation();
+
+
+  function handleNavigationToPoints(){
+    navigation.navigate('Login');
+};
+
     return(
         <View style={styles.container}>
             <View style={styles.main}>
@@ -13,7 +21,7 @@ const Home = () => {
                 <Text style={styles.description}>Ajudamos a você se organizar com o seu dinheiro.</Text>
             </View>
             <View style={styles.footer}>
-                <RectButton style={styles.button} onPress={() => {}}>
+                <RectButton style={styles.button} onPress={handleNavigationToPoints}>
                     <View style={styles.buttonIcon}>
                         <Text>
                             <Icon name="arrow-right" color="#FFF" size={24} />
@@ -58,15 +66,6 @@ const styles = StyleSheet.create({
     footer: {},
   
     select: {},
-  
-    input: {
-      height: 60,
-      backgroundColor: '#FFF',
-      borderRadius: 10,
-      marginBottom: 8,
-      paddingHorizontal: 24,
-      fontSize: 16,
-    },
   
     button: {
       backgroundColor: '#0047ab',
